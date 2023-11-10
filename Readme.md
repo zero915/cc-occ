@@ -1,6 +1,8 @@
-Certainly! Below is a minimal implementation of an Apache module in PHP that intercepts every POST request, analyzes it, and if it contains the letter "Z," replies with "The letter 'Z' was found!" Additionally, it blocks further processing by other handlers. This implementation is designed to work across different PHP setups and is Dockerized for easy testing.
+Below is a minimal implementation of an Apache module in PHP that intercepts every POST request, analyzes it, and if it contains the letter "Z," replies with "The letter 'Z' was found!" Additionally, it blocks further processing by other handlers. This implementation is designed to work across different PHP setups and is Dockerized for easy testing.
 
-Go to the root directory (where the ZInterceptor.php file is located)
+Copy the ZInterceptor.php file into your webserver (e.g. /var/www/html/)
+
+Go to that root directory (where the ZInterceptor.php file is located)
 
 Now, let's create a Dockerized environment for testing. Create a `Dockerfile`:
 
