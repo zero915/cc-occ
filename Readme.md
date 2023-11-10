@@ -1,41 +1,6 @@
 Certainly! Below is a minimal implementation of an Apache module in PHP that intercepts every POST request, analyzes it, and if it contains the letter "Z," replies with "The letter 'Z' was found!" Additionally, it blocks further processing by other handlers. This implementation is designed to work across different PHP setups and is Dockerized for easy testing.
 
-```php
-<?php
-// Define the Apache module
-class ZInterceptor {
-    // Function to handle POST requests
-    public function handlePostRequest() {
-        // Check if it's a POST request
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Get the POST data
-            $postData = file_get_contents('php://input');
-
-            // Check if the letter 'Z' is present in the POST data
-            if (strpos($postData, 'Z') !== false) {
-                // The letter 'Z' was found, send the response and exit
-                $this->sendResponse("The letter 'Z' was found!");
-            }
-        }
-    }
-
-    // Function to send a response and block further processing
-    private function sendResponse($message) {
-        // Send the response
-        echo $message;
-
-        // Block further processing by other handlers
-        exit;
-    }
-}
-
-// Create an instance of the ZInterceptor class
-$zInterceptor = new ZInterceptor();
-
-// Intercept and analyze POST requests
-$zInterceptor->handlePostRequest();
-?>
-```
+Go to the root directory (where the ZInterceptor.php file is located)
 
 Now, let's create a Dockerized environment for testing. Create a `Dockerfile`:
 
